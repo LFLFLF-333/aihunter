@@ -37,7 +37,7 @@
 - `src/components/CapabilityGrid.tsx`：能力、规范和边界。
 - `src/components/HowItWorks.tsx`：真实 Agent 使用方式和技术职责。
 - `src/components/SafetyNotice.tsx`：安全隔离声明。
-- `src/assets/ai-intel-sample.png`：经检查后复制的真实长图样例。
+- `src/assets/ai-intel-sample.png`：经检查后复制的 2026 年 8 月 1 日至 8 月 9 日真实长图样例。
 - `src/**/*.test.tsx`、`src/**/*.test.ts`：组件和状态机单元测试。
 - `e2e/showcase.spec.ts`：完整模拟流程和响应式验证。
 - `.gitignore`：排除依赖、构建物、环境变量和本地预览数据。
@@ -251,7 +251,7 @@ Expected: FAIL，提示组件不存在。
 
 - [ ] **Step 5: 检查并复制真实长图样例**
 
-源文件：`AI情报员/长图能力测试.png`。先检查图片不含聊天昵称、内部路径、Token、群 ID 或私人信息，再复制为 `src/assets/ai-intel-sample.png`。
+源文件：Hermes 输出目录中的 `ai_intel_20260801_0809.png`。先检查图片不含聊天昵称、内部路径、Token、群 ID 或私人信息，再复制为 `src/assets/ai-intel-sample.png`。
 
 - [ ] **Step 6: 运行测试和构建**
 
