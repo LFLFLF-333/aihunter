@@ -13,7 +13,7 @@ function App() {
           <h1>从一句日期指令，<br />到一份<span>可发布</span>的 AI 周报</h1>
           <p>自动检索、核验并提炼美国、中国及全球重要 AI 动态，生成文字版、来源清单和统一暗黑长图，经人工确认后发布。</p>
           <div className="hero-actions"><a className="primary-button" href="#demo">体验完整流程</a><a className="quiet-link" href="#case">查看真实案例 ↓</a></div>
-          <div className="metric-row"><div><b>4.5–8.5h</b><span>原人工耗时</span></div><i>→</i><div><b>约 40min</b><span>最近一次实跑</span></div><div><b>3 项</b><span>同步交付物</span></div></div>
+          <div className="metric-row"><div><b>4.5–8.5h</b><span>原人工耗时</span></div><i>→</i><div><b>3–5min</b><span>最近一次实跑</span></div><div><b>3 项</b><span>同步交付物</span></div></div>
         </div>
         <div className="hero-panel">
           <div className="panel-top"><span>LIVE WORKFLOW</span><i>安全隔离</i></div>
