@@ -8,4 +8,5 @@ dist/
 *.log
 playwright-report/
 test-results/
+site-preview.png
 *.tsbuildinfo
