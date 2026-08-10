@@ -9,4 +9,5 @@ dist/
 playwright-report/
 test-results/
 site-preview.png
+publish-result-preview.png
 *.tsbuildinfo

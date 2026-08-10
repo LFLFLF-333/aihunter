@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { initialDemoState, transitionDemo } from '../demo/demoMachine';
+import feishuPublishResult from '../assets/feishu-publish-result.png';
 
 const steps = [
   ['解析范围', '确认 2026 年 8 月 1 日至 8 月 9 日'],
@@ -12,12 +13,22 @@ const steps = [
 
 export default function DemoExperience() {
   const [state, setState] = useState(initialDemoState);
+  const [previewOpen, setPreviewOpen] = useState(false);
 
   useEffect(() => {
     if (state.stage !== 'processing' || state.step >= 6) return;
     const timer = window.setTimeout(() => setState((value) => transitionDemo(value, { type: 'NEXT_STEP' })), 420);
     return () => window.clearTimeout(timer);
   }, [state]);
+
+  useEffect(() => {
+    if (!previewOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setPreviewOpen(false);
+    };
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, [previewOpen]);
 
   const complete = () => setState((value) => transitionDemo(value, { type: 'COMPLETE_PROCESSING' }));
 
@@ -70,14 +81,39 @@ export default function DemoExperience() {
           )}
 
           {state.stage === 'simulated-published' && (
-            <div className="published-card">
-              <span className="published-icon">✓</span>
-              <div><b>模拟发布完成</b><p>没有发送任何真实消息，也没有调用任何 API。</p></div>
-              <button className="text-button" onClick={() => setState(transitionDemo(state, { type: 'RESET' }))}>重新体验</button>
+            <div className="published-result-stage">
+              <div className="published-card">
+                <span className="published-icon">✓</span>
+                <div><b>模拟发布完成</b><p>没有发送任何真实消息，也没有调用任何 API。</p></div>
+                <button className="text-button" onClick={() => setState(transitionDemo(state, { type: 'RESET' }))}>重新体验</button>
+              </div>
+
+              <figure className="publish-result">
+                <figcaption>
+                  <b>群内发布结果（真实案例脱敏展示）</b>
+                  <span>这是历史真实运行截图；本次网页体验不会发送消息或调用 API。</span>
+                </figcaption>
+                <button
+                  className="publish-result-trigger"
+                  type="button"
+                  aria-label="放大查看群内发布结果"
+                  onClick={() => setPreviewOpen(true)}
+                >
+                  <img src={feishuPublishResult} alt="AI 情报员在飞书群内发布文字摘要和暗黑长图的历史结果" />
+                  <span>点击放大</span>
+                </button>
+              </figure>
             </div>
           )}
         </div>
       </div>
+
+      {previewOpen && (
+        <div className="image-lightbox" role="dialog" aria-modal="true" aria-label="群内发布结果大图">
+          <button className="lightbox-close" type="button" aria-label="关闭大图" onClick={() => setPreviewOpen(false)}>×</button>
+          <img src={feishuPublishResult} alt="放大后的 AI 情报员飞书群发布结果" />
+        </div>
+      )}
     </section>
   );
 }
