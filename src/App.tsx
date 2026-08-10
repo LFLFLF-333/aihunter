@@ -10,7 +10,7 @@ function App() {
       <header className="hero" id="top">
         <div className="hero-copy">
           <div className="public-badge"><span /> 公开演示 · 不连接真实 Agent</div>
-          <h1>从一句日期指令，<br />到一份<span>可发布</span>的 AI 周报</h1>
+          <h1>从一句日期指令，<br />到一份<span>可发布</span>的 AI 情报</h1>
           <p>自动检索、核验并提炼美国、中国及全球重要 AI 动态，生成文字版、来源清单和统一暗黑长图，经人工确认后发布。</p>
           <div className="hero-actions"><a className="primary-button" href="#demo">体验完整流程</a><a className="quiet-link" href="#case">查看真实案例 ↓</a></div>
           <div className="metric-row"><div><b>4.5–8.5h</b><span>原人工耗时</span></div><i>→</i><div><b>3–5min</b><span>最近一次实跑</span></div><div><b>3 项</b><span>同步交付物</span></div></div>
@@ -27,11 +27,11 @@ function App() {
         <div className="case-copy">
           <span className="eyebrow">REAL OUTPUT · 2026.08.01—08.09</span>
           <h2>真实跑出来的成果，不是效果图</h2>
-          <p>这份周报由 AI情报员完成检索、核验、筛选和排版，并在人工审核后通过飞书发布。网页只展示脱敏后的公开产物。</p>
+          <p>这份情报由 AI情报员完成检索、核验、筛选和排版，并在人工审核后通过飞书发布。网页只展示脱敏后的公开产物。</p>
           <div className="case-facts"><div><b>10</b><span>重大情报</span></div><div><b>3</b><span>地区分区</span></div><div><b>4</b><span>重点新品</span></div></div>
           <ul><li>美国、中国、全球/其他地区分区</li><li>逐条呈现重要性、影响与信息性质</li><li>固定暗黑科技风，移动端高清长图</li></ul>
         </div>
-        <figure className="report-frame"><img src={reportImage} alt="AI情报员生成的2026年8月1日至8月9日暗黑风AI情报周报长图" /><figcaption>真实案例长图 · 点击或滚动页面查看细节</figcaption></figure>
+        <figure className="report-frame"><img src={reportImage} alt="AI情报员生成的2026年8月1日至8月9日暗黑风AI情报长图" /><figcaption>真实案例长图 · 点击或滚动页面查看细节</figcaption></figure>
       </section>
 
       <section className="section" id="capabilities"><div className="section-heading"><span className="eyebrow">CAPABILITIES</span><h2>它不是新闻搬运工，而是一套情报判断系统</h2></div><div className="capability-grid">{capabilities.map(([title,text],i)=><article key={title}><span>{String(i+1).padStart(2,'0')}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
